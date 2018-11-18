@@ -1,4 +1,4 @@
-package com.epam.infohandling;
+package com.epam.infohandling.classes1;
 
 import java.util.List;
 
