@@ -3,9 +3,9 @@ package com.epam.infohandling.own;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ParagraphToSentenceParser implements ChainOfResponsibility {
+public class FullTextToParagraphParser implements ChainOfResponsibility {
+    private static final String FULL_TEXT_PATTERN = "([\\t]|[ ]{4})[ a-zA-Z1-9,.?!;:()\\n\\s\\t*/+-]+([.?!]|[.]{3})";
     private static final String PARAGRAPH_PATTERN = "([\t]|[ ]{4})[ a-zA-Z1-9,.?!;:()*/+-]+([.?!]|[.]{3})[\n]?";
-    private static final String SENTENCE_PATTERN = "[ a-zA-Z1-9,;:()*/+-]+([.?!]|[.]{3})";
 
     private ChainOfResponsibility nextChain;
     private ChainOfResponsibility previousChain;
@@ -22,19 +22,19 @@ public class ParagraphToSentenceParser implements ChainOfResponsibility {
 
     @Override
     public void requestProcess(String text, Component component) {
-        if (text.matches(PARAGRAPH_PATTERN)) {
+        if (text.matches(FULL_TEXT_PATTERN)) {
 
-            Pattern sentencePattern = Pattern.compile(SENTENCE_PATTERN);
-            Matcher sentenceMatcher = sentencePattern.matcher(text);
+            Pattern paragraphPattern = Pattern.compile(PARAGRAPH_PATTERN);
+            Matcher paragraphMatcher = paragraphPattern.matcher(text);
 
-            String sentence;
+            String paragraph;
 
-            while (sentenceMatcher.find()) {
-                sentence = sentenceMatcher.group();
-
+            while (paragraphMatcher.find()) {
                 Component sentenceComponent = new Composite();
 
-                previousChain.requestProcess(sentence, sentenceComponent);
+                paragraph = paragraphMatcher.group();
+
+                previousChain.requestProcess(paragraph, sentenceComponent);
 
                 component.addElement(sentenceComponent);
             }
