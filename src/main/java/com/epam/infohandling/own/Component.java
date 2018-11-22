@@ -1,15 +1,20 @@
 package com.epam.infohandling.own;
 
 import java.util.Iterator;
+import java.util.List;
 
 public interface Component {
-    public void addElement(Component component);
+    void addElement(Component component);
 
-    public void removeElement(Component component);
+    void addValueToString(StringBuilder string);
 
-    public Component getElement(int index);
+    List<Component> getChildren();
 
-    public void parse();
+    void removeElement(Component component);
 
-    public Iterator<Component> getIterator();
+    Component getElement(int index);
+
+    void parse();
+
+    Iterator<Component> getIterator();
 }

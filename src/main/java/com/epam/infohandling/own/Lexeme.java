@@ -1,6 +1,7 @@
 package com.epam.infohandling.own;
 
 import java.util.Iterator;
+import java.util.List;
 
 public class Lexeme implements Component {
     private final String value;
@@ -21,6 +22,16 @@ public class Lexeme implements Component {
 
     @Override
     public void addElement(Component component) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void addValueToString(StringBuilder string) {
+        string.append(value + " ");
+    }
+
+    @Override
+    public List<Component> getChildren() {
         throw new UnsupportedOperationException();
     }
 

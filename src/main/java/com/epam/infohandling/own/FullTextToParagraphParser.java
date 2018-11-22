@@ -27,19 +27,16 @@ public class FullTextToParagraphParser implements ChainOfResponsibility {
             Pattern paragraphPattern = Pattern.compile(PARAGRAPH_PATTERN);
             Matcher paragraphMatcher = paragraphPattern.matcher(text);
 
-            String paragraph;
-
             while (paragraphMatcher.find()) {
                 Component sentenceComponent = new Composite();
-
-                paragraph = paragraphMatcher.group();
+                String paragraph = paragraphMatcher.group();
 
                 previousChain.requestProcess(paragraph, sentenceComponent);
 
                 component.addElement(sentenceComponent);
             }
         } else {
-            nextChain.requestProcess(text, component);
+            throw new UnsupportedOperationException();
         }
     }
 }

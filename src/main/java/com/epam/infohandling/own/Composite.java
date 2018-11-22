@@ -13,6 +13,17 @@ public class Composite implements Component {
     }
 
     @Override
+    public void addValueToString(final StringBuilder string) {
+        components.forEach(component ->
+                component.addValueToString(string));
+    }
+
+    @Override
+    public List<Component> getChildren() {
+        return components;
+    }
+
+    @Override
     public void removeElement(Component component) {
         components.remove(component);
     }

@@ -27,10 +27,8 @@ public class ParagraphToSentenceParser implements ChainOfResponsibility {
             Pattern sentencePattern = Pattern.compile(SENTENCE_PATTERN);
             Matcher sentenceMatcher = sentencePattern.matcher(text);
 
-            String sentence;
-
             while (sentenceMatcher.find()) {
-                sentence = sentenceMatcher.group();
+                String sentence = sentenceMatcher.group();
 
                 Component sentenceComponent = new Composite();
 

@@ -12,7 +12,7 @@ public class Main {
         fullTextParser.setPreviousChain(paragraphParser);
         paragraphParser.setPreviousChain(sentenceParser);
 
-        String text = "    Hello, 23 3 + is twenty three! My name is Anton. I am from London.\n" +
+        String text = "    Hello, 23 3 + is twenty six! My name is Anton. I am from London.\n" +
                 "    London is the capital of Great Britain!";
 
         Component component = new Composite();
@@ -20,6 +20,12 @@ public class Main {
         sentenceParser.requestProcess(text, component);
 
         System.out.println(component);
+
+        StringBuilder string = new StringBuilder();
+
+        component.addValueToString(string);
+
+        System.out.println("MyString: " + string);
     }
 }
 // знаки припинания в слова?

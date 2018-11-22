@@ -1,6 +1,7 @@
 package com.epam.infohandling.classes1;
 
 import java.util.List;
+import java.util.Objects;
 
 // boolean isExpression или от лексемы 2 производных класса (Word, expression)
 
@@ -31,6 +32,32 @@ public class Lexeme implements Component, Value {
 
     public String getValue() {
         return value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Lexeme lexeme = (Lexeme) o;
+        return expression == lexeme.expression &&
+                Objects.equals(value, lexeme.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, expression);
+    }
+
+    @Override
+    public String toString() {
+        return "Lexeme{" +
+                "value='" + value + '\'' +
+                ", expression=" + expression +
+                '}';
     }
 }
 
