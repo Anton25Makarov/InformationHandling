@@ -13,6 +13,7 @@ public class TextParser extends ChainOfParsers {
         super(successor);
     }
 
+
     @Override
     public Component parse(String text) {
         Pattern paragraphPattern = Pattern.compile(PARAGRAPH_PATTERN);
@@ -33,6 +34,3 @@ public class TextParser extends ChainOfParsers {
 
 
 }
-// поскольку текстПарсер и ПараграфПарсер
-// одинаковые можно сделать один и передавать
-// паттерн в конструкторе, и саксесор в Сетере

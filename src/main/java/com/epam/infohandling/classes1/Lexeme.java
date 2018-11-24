@@ -3,11 +3,10 @@ package com.epam.infohandling.classes1;
 import java.util.List;
 import java.util.Objects;
 
-// boolean isExpression или от лексемы 2 производных класса (Word, expression)
-
-public class Lexeme implements Component, Value {
+public class Lexeme implements Component/*, Value */ {
     private final String value;
     private boolean expression;
+
 
     private Lexeme(String value, boolean expression) {
         this.value = value;
@@ -22,6 +21,7 @@ public class Lexeme implements Component, Value {
         return new Lexeme(value, true);
     }
 
+
     public void addComponent(Component comp) {
         throw new UnsupportedOperationException();
     }
@@ -30,8 +30,14 @@ public class Lexeme implements Component, Value {
         throw new UnsupportedOperationException();
     }
 
+    @Override
     public String getValue() {
         return value;
+    }
+
+
+    public boolean isExpression() {
+        return expression;
     }
 
     @Override

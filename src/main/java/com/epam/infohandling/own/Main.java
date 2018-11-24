@@ -1,8 +1,10 @@
 package com.epam.infohandling.own;
 
+import com.epam.infohandling.newchain.Client;
+
 public class Main {
     public static void main(String[] args) {
-        ChainOfResponsibility sentenceParser = new SentenceToLexemeParser();
+        /*ChainOfResponsibility sentenceParser = new SentenceToLexemeParser();
         ChainOfResponsibility paragraphParser = new ParagraphToSentenceParser();
         ChainOfResponsibility fullTextParser = new FullTextToParagraphParser();
 
@@ -25,7 +27,14 @@ public class Main {
 
         component.addValueToString(string);
 
-        System.out.println("MyString: " + string);
+        System.out.println("MyString: " + string);*/
+
+
+        /*String expression = "8 2 7 4 + * -"; // expression in polska form
+        Client interpreter = new Client(expression);
+        System.out.println("[ " + expression + " ] = " + interpreter.calculate());*/
+
+
     }
 }
 // знаки припинания в слова?

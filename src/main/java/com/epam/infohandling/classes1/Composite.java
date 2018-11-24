@@ -5,19 +5,31 @@ import java.util.List;
 import java.util.Objects;
 
 public class Composite implements Component {
-    List<Component> components;
+    private List<Component> components;
 
     public Composite() {
         this.components = new ArrayList<>();
     }
 
+    @Override
     public void addComponent(Component component) {
         components.add(component);
     }
 
-    public List<Component> getChildren() {
-        return null;
+    @Override
+    public String getValue() {
+        StringBuilder text = new StringBuilder();
+        for (Component component: components){
+            text.append(component.getValue()).append(" ");
+        }
+        return text.toString();
     }
+
+    @Override
+    public List<Component> getChildren() {
+        return components;
+    }
+
 
     @Override
     public boolean equals(Object o) {

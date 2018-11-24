@@ -10,7 +10,7 @@ public class TextAndParagraphParserTest {
     private static final String PARAGRAPH = "First sentence. Second, sentence! 2 1 + sentence?\n";
     private static final String TEXT = "    First sentence. 1 1 + sentence?\n" +
             "    Third sentence. Fourth sentence 2 3 * 4 + ok?\n" +
-            "    Bye...";
+            "    Bye...\n";
 
     private Component expectedParagraph = new Composite();  // paragraph
     private Component expectedText = new Composite();  // whole text
@@ -42,6 +42,16 @@ public class TextAndParagraphParserTest {
 
         // then
         Assert.assertEquals(expectedText, actualText);
+
+
+        ComponentCloner componentCloner = new ComponentCloner();
+
+        Component component = componentCloner.clone(actualText);
+
+        Assert.assertEquals(component, actualText);
+
+        System.out.println("actual: " + actualText);
+        System.out.println("clone : " + component);
     }
 
     private void initParseParagraph() {
