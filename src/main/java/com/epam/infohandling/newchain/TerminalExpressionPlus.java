@@ -5,6 +5,6 @@ public class TerminalExpressionPlus extends MathExpression {
     public void interpret(Context context) {
         Integer firstValue = context.popValue();
         Integer secondValue = context.popValue();
-        context.pushValue(firstValue + secondValue);
+        context.pushValue(secondValue + firstValue);
     }
 }

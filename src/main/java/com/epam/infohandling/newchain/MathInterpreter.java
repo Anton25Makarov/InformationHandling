@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Client {
+public class MathInterpreter {
     private List<MathExpression> mathExpressions;
 
-    public Client(String expression) {
+    public MathInterpreter(String expression) {
         mathExpressions = new ArrayList<>();
         parse(expression);
     }
@@ -39,7 +39,7 @@ public class Client {
             }
         }
     }
-    public Number calculate(){
+    public int calculate(){
         Context context = new Context();
 
         for (MathExpression terminal : mathExpressions) {

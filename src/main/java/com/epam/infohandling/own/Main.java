@@ -1,7 +1,5 @@
 package com.epam.infohandling.own;
 
-import com.epam.infohandling.newchain.Client;
-
 public class Main {
     public static void main(String[] args) {
         /*ChainOfResponsibility sentenceParser = new SentenceToLexemeParser();
@@ -31,7 +29,7 @@ public class Main {
 
 
         /*String expression = "8 2 7 4 + * -"; // expression in polska form
-        Client interpreter = new Client(expression);
+        MathInterpreter interpreter = new MathInterpreter(expression);
         System.out.println("[ " + expression + " ] = " + interpreter.calculate());*/
 
 

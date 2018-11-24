@@ -42,16 +42,6 @@ public class TextAndParagraphParserTest {
 
         // then
         Assert.assertEquals(expectedText, actualText);
-
-
-        ComponentCloner componentCloner = new ComponentCloner();
-
-        Component component = componentCloner.clone(actualText);
-
-        Assert.assertEquals(component, actualText);
-
-        System.out.println("actual: " + actualText);
-        System.out.println("clone : " + component);
     }
 
     private void initParseParagraph() {
