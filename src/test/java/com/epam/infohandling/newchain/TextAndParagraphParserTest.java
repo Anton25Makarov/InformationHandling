@@ -42,6 +42,11 @@ public class TextAndParagraphParserTest {
 
         // then
         Assert.assertEquals(expectedText, actualText);
+
+        Logic logic = new Logic(new ComponentCloner());
+
+        System.out.println("1:" + expectedText);
+        System.out.println("2:" + logic.sortLexemesByCountOfSymbolOccurrenceByDecrease(expectedText, 'e'));
     }
 
     private void initParseParagraph() {
