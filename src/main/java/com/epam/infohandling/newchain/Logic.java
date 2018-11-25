@@ -70,9 +70,8 @@ public class Logic {
                         return secondLexemeSymbolOccurrenceCount - firstLexemeSymbolOccurrenceCount;
                     }
 
-                    return secondLexemeValue.compareTo(firstLexemeValue);
+                    return secondLexemeValue.compareToIgnoreCase(firstLexemeValue);
                 });
-                System.out.println("Lexeme: " + lexemes);
             }
         }
         return component;
