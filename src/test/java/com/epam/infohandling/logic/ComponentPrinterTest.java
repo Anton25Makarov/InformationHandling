@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TextRestoratorTest {
+public class ComponentPrinterTest {
     private static final String EXPECTED_TEXT = "\tFirst sentence. 1 1 + sentence?\n" +
             "\tThird sentence. Fourth sentence 2 3 * 4 + ok?\n" +
             "\tBye...\n\t";
@@ -71,10 +71,10 @@ public class TextRestoratorTest {
     @Test
     public void shouldParseComponentToText() {
         // given
-        TextRestorator textRestorator = new TextRestorator();
+        ComponentPrinter componentPrinter = new ComponentPrinter();
 
         // when
-        String actualText = textRestorator.parseToString(component);
+        String actualText = componentPrinter.parseToString(component);
 
         // then
         Assert.assertEquals(EXPECTED_TEXT, actualText);

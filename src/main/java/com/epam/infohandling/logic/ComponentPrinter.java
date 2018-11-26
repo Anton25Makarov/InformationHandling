@@ -2,7 +2,7 @@ package com.epam.infohandling.logic;
 
 import com.epam.infohandling.entities.Component;
 
-public class TextRestorator {
+public class ComponentPrinter {
 
     public String parseToString(Component component) {
         String text = "\t";

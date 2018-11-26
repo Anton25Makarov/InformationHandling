@@ -4,29 +4,20 @@ import com.epam.infohandling.entities.Component;
 import com.epam.infohandling.exception.GetChildrenFromLexemeException;
 import org.apache.commons.lang3.StringUtils;
 
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
-
 import java.util.Comparator;
 import java.util.List;
 
 public class ComponentSorter {
-    private static final Logger LOGGER = LogManager.getLogger(ComponentSorter.class);
     private ComponentCloner cloner;
 
     public ComponentSorter(ComponentCloner cloner) {
         this.cloner = cloner;
     }
 
-    public Component sortParagraphsByCountOfSentences(Component textComponent) {
-        Component component = cloner.clone(textComponent);
+    public Component sortParagraphsByCountOfSentences(Component textComponent) throws GetChildrenFromLexemeException {
+        validateComponentText(textComponent);
 
-        try {
-            validateComponentText(component);
-        } catch (GetChildrenFromLexemeException e) { // maybe better handle error in Director but i haven't Director
-            LOGGER.error(e);
-            return component;
-        }
+        Component component = cloner.clone(textComponent);
 
         List<Component> components = component.getChildren();
 
@@ -35,15 +26,10 @@ public class ComponentSorter {
         return component;
     }
 
-    public Component sortSentencesByWordsLength(Component textComponent) {
-        Component component = cloner.clone(textComponent);
+    public Component sortSentencesByWordsLength(Component textComponent) throws GetChildrenFromLexemeException {
+        validateComponentText(textComponent);
 
-        try {
-            validateComponentText(component);
-        } catch (GetChildrenFromLexemeException e) { // maybe better handle error in Director but i haven't Director
-            LOGGER.error(e);
-            return component;
-        }
+        Component component = cloner.clone(textComponent);
 
         List<Component> paragraphs = component.getChildren();
         for (Component paragraph : paragraphs) {
@@ -57,15 +43,11 @@ public class ComponentSorter {
         return component;
     }
 
-    public Component sortLexemesByCountOfSymbolOccurrenceByDecrease(Component textComponent, char symbol) {
-        Component component = cloner.clone(textComponent);
+    public Component sortLexemesByCountOfSymbolOccurrenceByDecrease(Component textComponent, char symbol)
+            throws GetChildrenFromLexemeException {
+        validateComponentText(textComponent);
 
-        try {
-            validateComponentText(component);
-        } catch (GetChildrenFromLexemeException e) { // maybe better handle error in Director but i haven't Director
-            LOGGER.error(e);
-            return component;
-        }
+        Component component = cloner.clone(textComponent);
 
         List<Component> paragraphs = component.getChildren(); // paragraphs
         for (Component paragraph : paragraphs) {
